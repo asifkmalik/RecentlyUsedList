@@ -10,7 +10,15 @@ public class RecentlyUsedListTest {
 	@Test 
 	public void shouldBeEmptyWhenInitialised() {
 		RecentlyUsedList rul = new RecentlyUsedList();
-		assertThat(rul.length(), equalTo(0));
+		assertThat(rul.getLength(), equalTo(0));
 	}
 
+	@Test
+	public void shouldAddThingsToList() {
+		RecentlyUsedList rul = new RecentlyUsedList();
+		rul.add(1);
+		assertThat(rul.getLength(), equalTo(1));
+		rul.add(1);
+		assertThat(rul.getLength(), equalTo(2));
+	}
 }

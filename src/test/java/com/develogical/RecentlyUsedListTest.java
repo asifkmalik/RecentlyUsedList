@@ -21,4 +21,12 @@ public class RecentlyUsedListTest {
 		rul.add(1);
 		assertThat(rul.getLength(), equalTo(2));
 	}
+
+	@Test
+	public void shouldRetrieveThingsFromList() {
+		RecentlyUsedList rul = new RecentlyUsedList();
+
+		rul.add(77);
+		assertThat(rul.retrieve(), equalTo(77));
+	}
 }

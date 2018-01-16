@@ -29,4 +29,26 @@ public class RecentlyUsedListTest {
 		rul.add(77);
 		assertThat(rul.retrieve(), equalTo(77));
 	}
+
+	@Test
+	public void mostRecentItemShouldbeFirst() {
+		RecentlyUsedList rul = new RecentlyUsedList();
+
+		rul.add(77);
+		rul.add(80);
+		rul.add(81);
+
+		assertThat(rul.retrieve(), equalTo(81));
+	}
+
+	@Test
+	public void nthRecentItem() {
+		RecentlyUsedList rul = new RecentlyUsedList();
+
+		rul.add(77);
+		rul.add(66);
+		rul.add(55);
+
+		assertThat(rul.retrieve(1), equalTo(66));
+	}
 }

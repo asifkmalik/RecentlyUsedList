@@ -13,7 +13,7 @@ public class RecentlyUsedList {
     }
 
     public void add (int term) {
-        list.add(new Integer (term));
+        list.addFirst(new Integer (term));
     }
 
     public int getLength() {
@@ -21,6 +21,10 @@ public class RecentlyUsedList {
 	}
 
 	public int retrieve () {
-        return list.get(list.size()-1).intValue();
+        return list.get(0).intValue();
+    }
+
+    public int retrieve(int nth) {
+        return list.get(nth).intValue();
     }
 }

@@ -13,6 +13,14 @@ public class RecentlyUsedList {
     }
 
     public void add (int term) {
+        for (Integer x : list) {
+            if (x.intValue() == term) {
+                list.remove(x);
+                list.addFirst(new Integer(term));
+                return;
+            }
+        }
+
         list.addFirst(new Integer (term));
     }
 

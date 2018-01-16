@@ -19,7 +19,7 @@ public class RecentlyUsedListTest {
 		rul.add(1);
 		assertThat(rul.getLength(), equalTo(1));
 		rul.add(1);
-		assertThat(rul.getLength(), equalTo(2));
+		assertThat(rul.getLength(), equalTo(1));
 	}
 
 	@Test
@@ -50,5 +50,19 @@ public class RecentlyUsedListTest {
 		rul.add(55);
 
 		assertThat(rul.retrieve(1), equalTo(66));
+	}
+
+	@Test
+	public void duplicateInsertionsMovedRatherThanAdded () {
+
+		RecentlyUsedList rul = new RecentlyUsedList();
+
+		rul.add(77);
+		rul.add(66);
+		rul.add(77);
+
+		assertThat(rul.retrieve(0), equalTo(77));
+		assertThat(rul.retrieve(1), equalTo(66));
+
 	}
 }
